@@ -1,49 +1,22 @@
-import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
-const apiUrl = "http://localhost:3004/posts";
+import HomePage from "./components/HomePage";
+import PostPage from "./components/PostPage";
 function App() {
-  const [postList, setPostList] = useState([]);
-  const [newPostTitle, setPostTitle] = useState("");
-
-  async function fetchPostList() {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-    setPostList(data);
-  }
-
-  async function createPost(postData) {
-    const response = await fetch(apiUrl, {
-      method: "POST",
-      body: JSON.stringify(postData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    fetchPostList();
-    // setPostList(data);
-  }
-
-  useEffect(() => {
-    fetchPostList();
-  }, []);
-
   return (
     <div className="App">
-      {postList.map((post) => {
-        return <div>{post.title}</div>;
-      })}
-      <input
-        value={newPostTitle}
-        onChange={(e) => setPostTitle(e.target.value)}
-      ></input>
-      <button
-        onClick={() => {
-          createPost({ title: newPostTitle, author: "user" });
-          setPostTitle("");
-        }}
-      >
-        Create a fake post
-      </button>
+      <Router>
+        {/* A <Switch> looks through its children <Route>s and
+      renders the first one that matches the current URL. */}
+        <Switch>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+          <Route exact path="/post/:id">
+            <PostPage />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
