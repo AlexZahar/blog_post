@@ -22,6 +22,30 @@
       "title": "asd",
       "author": "user",
       "id": 4
+    },
+    {
+      "postid": "1",
+      "id": 5
+    },
+    {
+      "body": "aaaaa",
+      "postid": "1",
+      "id": 6
+    },
+    {
+      "body": "aaaaa",
+      "postid": "1",
+      "id": 7
+    },
+    {
+      "title": "fghfgh",
+      "author": "user",
+      "id": 8
+    },
+    {
+      "title": "asdasd",
+      "description": "asdddd",
+      "id": 9
     }
   ],
   "comments": [
@@ -29,6 +53,24 @@
       "id": 1,
       "body": "some comment",
       "postId": 1
+    },
+    {
+      "body": " nnnnn",
+      "postid": "1",
+      "postId": "1",
+      "id": 2
+    },
+    {
+      "body": "aaaaa",
+      "postid": "8",
+      "postId": "8",
+      "id": 3
+    },
+    {
+      "body": "ggg",
+      "postid": "8",
+      "postId": "8",
+      "id": 4
     }
   ],
   "profile": {

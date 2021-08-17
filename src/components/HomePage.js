@@ -46,6 +46,7 @@ function HomePage() {
       >
         Create a fake post
       </button>
+      <Link to="/create-post">Add a post</Link>
     </div>
   );
 }

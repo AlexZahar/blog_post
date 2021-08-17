@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 import HomePage from "./components/HomePage";
 import PostPage from "./components/PostPage";
+import CreatePost from "./components/CreatePost";
+
 function App() {
   return (
     <div className="App">
@@ -12,8 +14,11 @@ function App() {
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route exact path="/post/:id">
+          <Route path="/post/:id">
             <PostPage />
+          </Route>
+          <Route exact path="/create-post">
+            <CreatePost />
           </Route>
         </Switch>
       </Router>
