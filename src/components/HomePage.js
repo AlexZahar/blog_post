@@ -13,18 +13,6 @@ function HomePage() {
     setPostList(data);
   }
 
-  async function createPost(postData) {
-    const response = await fetch(apiUrl, {
-      method: "POST",
-      body: JSON.stringify(postData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    fetchPostList();
-    // setPostList(data);
-  }
-
   useEffect(() => {
     fetchPostList();
   }, []);
@@ -32,20 +20,17 @@ function HomePage() {
   return (
     <div className="App">
       {postList.map((post) => {
-        return <Link to={`/post/${post.id}`}>{post.title}</Link>;
+        return (
+          <Link to={`/post/${post.id}`} key={post.id}>
+            <p data-testid={`title-${post.id}`}> {post.title}</p>
+          </Link>
+        );
       })}
       <input
         value={newPostTitle}
         onChange={(e) => setPostTitle(e.target.value)}
       ></input>
-      <button
-        onClick={() => {
-          createPost({ title: newPostTitle, author: "user" });
-          setPostTitle("");
-        }}
-      >
-        Create a fake post
-      </button>
+
       <Link to="/create-post">Add a post</Link>
     </div>
   );
