@@ -21,7 +21,11 @@ function HomePage() {
     <div className="App">
       {postList.map((post) => {
         return (
-          <Link to={`/post/${post.id}`} key={post.id}>
+          <Link
+            to={`/post/${post.id}`}
+            key={post.id}
+            data-cy={`link-post-${post.id}`}
+          >
             <p data-testid={`title-${post.id}`}> {post.title}</p>
           </Link>
         );
@@ -31,7 +35,9 @@ function HomePage() {
         onChange={(e) => setPostTitle(e.target.value)}
       ></input>
 
-      <Link to="/create-post">Add a post</Link>
+      <Link to="/create-post" data-cy={"add-post-button"}>
+        Add a post
+      </Link>
     </div>
   );
 }

@@ -34,20 +34,24 @@ function CreatePost() {
         >
           <div>
             <label>Title:</label>
-            <input name="title"></input>
+            <input name="title" data-cy="input-title"></input>
           </div>
           <div>
             <label>Description:</label>
-            <textarea name="description"></textarea>
+            <textarea name="description" data-cy="input-description"></textarea>
           </div>
 
-          <button type="submit">Submit</button>
+          <button type="submit" data-cy="submit-btn">
+            Submit
+          </button>
         </form>
       ) : (
         <div>Post was created</div>
       )}
 
-      <Link to="/">Back Home</Link>
+      <Link to="/" data-cy="go-back-btn">
+        Back Home
+      </Link>
     </div>
   );
 }
